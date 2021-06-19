@@ -22,11 +22,11 @@ folium.GeoJson(
     name="geojson",
     style_function=lambda feat: {
         "weight": 2,
-        'color': 'black',
-        'fillColor': color_department(feat),
+        "color": "black",
+        "fillColor": color_department(feat),
     },
     highlight_function=lambda feat: {
-        'fillColor': highlight_department(feat),
+        "fillColor": highlight_department(feat),
     }
 ).add_to(m)
 
