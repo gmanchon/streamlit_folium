@@ -29,7 +29,7 @@ def color_zone(feat):
 m = folium.Map(location=[47, 1], zoom_start=6)
 
 folium.GeoJson(
-    "geojson.json",
+    "departements.json",
     name="geojson",
     style_function=lambda feat: {
         "weight": 1,
