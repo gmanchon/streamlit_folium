@@ -6,23 +6,23 @@ from streamlit_folium import folium_static
 import folium
 
 
-def color_department(feat):
+def color_zone(feat):
 
-    # get dpt code
+    # get zone code from json
     code = feat["properties"]["code"]
 
-    # convert dpt
+    # convert zone
     try:
         code = int(code)
     except ValueError:
         code = 0
 
-    # convert dpt to hex
-    return "#0000{:02x}".format(int(code / 95 * 255))
+    # convert zone code to color code
+    return "#00{:02x}ff".format(int(code / 95 * 255))
 
 
-def highlight_department(feat):
-    return "blue" if int(feat["properties"]["code"][:1]) < 5 else "green"
+# def highlight_zone(feat):
+#     return "blue" if int(feat["properties"]["code"][:1]) < 5 else "green"
 
 
 # center on France
@@ -34,13 +34,13 @@ folium.GeoJson(
     style_function=lambda feat: {
         "weight": 1,
         "color": "black",
-        "fillColor": color_department(feat),
         "opacity": 0.25,
-        "fillOpacity": .25,
+        "fillColor": color_zone(feat),
+        "fillOpacity": 0.25,
     },
-    highlight_function=lambda feat: {
-        "fillColor": highlight_department(feat),
-    }
+    # highlight_function=lambda feat: {
+    #     "fillColor": highlight_zone(feat),
+    # },
 ).add_to(m)
 
 # render map
