@@ -7,10 +7,10 @@ import folium
 
 
 st.set_page_config(
-        page_title="Folium Map",
-        page_icon="🍁",
-        layout="wide",
-        initial_sidebar_state="collapsed")
+    page_title="Folium Map",
+    page_icon="🍁",
+    layout="wide",
+    initial_sidebar_state="collapsed")
 
 CSS = """
 iframe {
