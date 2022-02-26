@@ -6,6 +6,22 @@ from streamlit_folium import folium_static
 import folium
 
 
+st.set_page_config(
+        page_title="Folium Map",
+        page_icon="🍁",
+        layout="wide",
+        initial_sidebar_state="collapsed")
+
+CSS = """
+iframe {
+    width: 100%;
+    height: 700px;
+}
+"""
+
+st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
+
+
 def color_zone(feat):
 
     # get zone code from json
@@ -26,7 +42,7 @@ def color_zone(feat):
 
 
 # center on France
-m = folium.Map(location=[47, 1], zoom_start=6)
+m = folium.Map(location=[47, 1], zoom_start=6, width="100", height="100")
 
 folium.GeoJson(
     "departements.json",
